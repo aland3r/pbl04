@@ -39,20 +39,20 @@ public class QuickSort {
             // se o elemento atual é menor ou igual ao pivô, ele pertence à esquerda
             if (array[j] <= pivo) {
                 i++;
-
-                // troca: move o elemento para a zona da esquerda
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                swap(array, i, j);
             }
         }
 
         // coloca o pivô entre as duas zonas, na posição definitiva
-        int temp = array[i + 1];
-        array[i + 1] = array[fim];
-        array[fim] = temp;
+        swap(array, i + 1, fim);
 
         // retorna a posição final do pivô
         return i + 1;
+    }
+
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
